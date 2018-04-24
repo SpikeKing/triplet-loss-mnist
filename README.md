@@ -18,7 +18,7 @@ Triplet Loss的核心是锚示例、正示例、负示例共享模型，通过�
 
 **Triplet Loss Model**的结构如下：
 
-<img src="doc/tl_model.png"  width=auto height="200">
+<img src="doc/tl_model.png"  width=auto height="150">
 
 - 输入：三个输入，即锚示例、正示例、负示例，不同示例的**结构**相同；
 - 模型：一个共享模型，支持替换为**任意**网络结构；
@@ -30,7 +30,7 @@ Triplet Loss的核心是锚示例、正示例、负示例共享模型，通过�
 
 Triplet Loss**损失函数**的计算公式如下：
 
-<img src="doc/tl_formular.png"  width=auto height="100">
+<img src="doc/tl_formular.png"  width=auto height="80">
 
 ---
 
@@ -47,11 +47,11 @@ Triplet Loss**损失函数**的计算公式如下：
 
 算法收敛较好，Loss线性下降：
 
-![Loss](doc/loss_timeline.png)
+<img src="doc/loss_timeline.png"  width=auto height="200">
 
 TF Graph：
 
-![Graph](doc/graph.png)
+<img src="doc/graph.png"  width=auto height="400">
 
 ---
 
@@ -105,11 +105,11 @@ MNIST验证集的效果：
 
 测试的MNIST分布：
 
-![Default](doc/default.png)
+<img src="doc/default.png" width=auto height="400">
 
 输出的Triplet Loss MNIST分布：
 
-![Triplet Loss](doc/test.png)
+<img src="doc/test.png" width=auto height="400">
 
 本例仅仅使用2个Epoch，也没有特殊设置超参，实际效果仍有提升空间。
 
