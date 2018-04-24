@@ -2,8 +2,6 @@
 
 [Triplet Loss](https://arxiv.org/pdf/1503.03832.pdf)是深度学习中的一种损失函数，用于训练**差异性较小**的样本，如人脸等， Feed数据包括锚（Anchor）示例、正（Positive）示例、负（Negative）示例，通过优化锚示例与正示例的距离**小于**锚示例与负示例的距离，实现样本的相似性计算。
 
-![Learning](doc/tl_algorithm.png)
-
 <img src="doc/tl_algorithm.png"  width=auto height="200">
 
 数据集：[MNIST](http://yann.lecun.com/exdb/mnist/)
@@ -20,7 +18,7 @@ Triplet Loss的核心是锚示例、正示例、负示例共享模型，通过�
 
 **Triplet Loss Model**的结构如下：
 
-![Triplet Loss](doc/tl_model.png)
+<img src="doc/tl_model.png"  width=auto height="200">
 
 - 输入：三个输入，即锚示例、正示例、负示例，不同示例的**结构**相同；
 - 模型：一个共享模型，支持替换为**任意**网络结构；
@@ -28,11 +26,11 @@ Triplet Loss的核心是锚示例、正示例、负示例共享模型，通过�
 
 **Shared Model**选择常用的卷积模型，输出为全连接的128维数据：
 
-![Base Model](doc/base_model.png)
+<img src="doc/base_model.png"  width=auto height="400">
 
 Triplet Loss**损失函数**的计算公式如下：
 
-![Formula](doc/tl_formular.png)
+<img src="doc/tl_formular.png"  width=auto height="100">
 
 ---
 
