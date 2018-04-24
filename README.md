@@ -6,9 +6,11 @@
 
 数据集：[MNIST](http://yann.lecun.com/exdb/mnist/)
 
-工程框架：[DL-Project-Template](https://github.com/SpikeKing/DL-Project-Template)
+框架：[DL-Project-Template](https://github.com/SpikeKing/DL-Project-Template)
 
 目标：通过Triplet Loss训练模型，实现手写图像的相似性计算。
+
+[工程](https://github.com/SpikeKing/triplet-loss-mnist)：https://github.com/SpikeKing/triplet-loss-mnist
 
 ---
 
@@ -28,7 +30,7 @@ Triplet Loss的核心是锚示例、正示例、负示例共享模型，通过�
 
 <img src="doc/base_model.png"  width=auto height="400">
 
-Triplet Loss**损失函数**的计算公式如下：
+Triplet Loss **损失函数**的计算公式如下：
 
 <img src="doc/tl_formular.png"  width=auto height="80">
 
@@ -86,6 +88,8 @@ TF Graph：
 
 ## 验证
 
+**算法效率**（TPS）: 每秒48163次 (0.0207625 ms/t)
+
 测试命令：
 
 ```text
@@ -132,8 +136,6 @@ TPS: 272553.829381 (0.003669 ms)
 日志目录: /Users/wang/workspace/triplet-loss-mnist/experiments/triplet_mnist/logs/test
 [INFO] 预测完成...
 ```
-
-执行效率（TPS）: 每秒48163.756773次 (0.0207625 ms/t)
 
 MNIST验证集的效果：
 
@@ -192,5 +194,3 @@ MNIST验证集的效果：
 ---
 
 By C. L. Wang @ [美图](http://www.meipai.com/)云事业部
-
-That's all! Enjoy it!
