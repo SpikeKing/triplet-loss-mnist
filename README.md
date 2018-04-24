@@ -4,7 +4,7 @@
 
 ![Learning](doc/tl_algorithm.png)
 
-<img src="doc/tl_algorithm.png"  width=auto height="100">
+<img src="doc/tl_algorithm.png"  width=auto height="200">
 
 数据集：[MNIST](http://yann.lecun.com/exdb/mnist/)
 
