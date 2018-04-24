@@ -45,6 +45,35 @@ Triplet Loss**损失函数**的计算公式如下：
 
 - 边界Margin的值设置为``1``。
 
+训练命令：
+
+```text
+python main_train.py -c configs/triplet_config.json
+```
+
+训练日志：
+
+```text
+Using TensorFlow backend.
+[INFO] 解析配置...
+[INFO] 加载数据...
+[INFO] X_train.shape: (60000, 28, 28, 1), y_train.shape: (60000, 10)
+[INFO] X_test.shape: (10000, 28, 28, 1), y_test.shape: (10000, 10)
+[INFO] 构造网络...
+[INFO] model - 锚shape: (?, 128)
+[INFO] model - 正shape: (?, 128)
+[INFO] model - 负shape: (?, 128)
+[INFO] model - triplet_loss shape: (?, 1)
+[INFO] 训练网络...
+[INFO] trainer - 类别数: 10
+Train on 54200 samples, validate on 8910 samples
+2018-04-24 10:59:06.130952: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+Epoch 1/2
+54200/54200 [==============================] - 84s 2ms/step - loss: 0.6083 - val_loss: 0.0515
+Epoch 2/2
+54200/54200 [==============================] - 83s 2ms/step - loss: 0.0869 - val_loss: 0.0314
+```
+
 算法收敛较好，Loss线性下降：
 
 <img src="doc/loss_timeline.png"  width=auto height="200">
@@ -56,6 +85,53 @@ TF Graph：
 ---
 
 ## 验证
+
+测试命令：
+
+```text
+python main_test.py -c configs/triplet_config.json
+```
+
+测试日志：
+
+```text
+Using TensorFlow backend.
+[INFO] 解析配置...
+[INFO] 加载数据...
+[INFO] 预测数据...
+展示数据: (10000, 784)
+展示标签: (10000,)
+日志目录: /Users/wang/workspace/triplet-loss-mnist/experiments/triplet_mnist/logs/default
+2018-04-24 11:02:07.874682: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+[INFO] model - triplet_loss shape: (?, 1)
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+anc_input (InputLayer)          (None, 28, 28, 1)    0                                            
+__________________________________________________________________________________________________
+pos_input (InputLayer)          (None, 28, 28, 1)    0                                            
+__________________________________________________________________________________________________
+neg_input (InputLayer)          (None, 28, 28, 1)    0                                            
+__________________________________________________________________________________________________
+model_1 (Model)                 (None, 128)          112096      anc_input[0][0]                  
+                                                                 pos_input[0][0]                  
+                                                                 neg_input[0][0]                  
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 384)          0           model_1[1][0]                    
+                                                                 model_1[2][0]                    
+                                                                 model_1[3][0]                    
+==================================================================================================
+Total params: 112,096
+Trainable params: 112,096
+Non-trainable params: 0
+__________________________________________________________________________________________________
+TPS: 272553.829381 (0.003669 ms)
+验证结果结构: (10000, 128)
+展示数据: (10000, 128)
+展示标签: (10000,)
+日志目录: /Users/wang/workspace/triplet-loss-mnist/experiments/triplet_mnist/logs/test
+[INFO] 预测完成...
+```
 
 执行效率（TPS）: 每秒48163.756773次 (0.0207625 ms/t)
 

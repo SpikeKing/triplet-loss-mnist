@@ -73,11 +73,5 @@ def get_test_args():
         metavar='C',
         default='None',
         help='add a configuration file')
-    parser.add_argument(
-        '-m', '--mod',
-        dest='model',
-        metavar='',
-        default='None',
-        help='add a model file')
     args = parser.parse_args()
     return args, parser
