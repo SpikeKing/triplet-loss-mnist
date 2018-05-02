@@ -1,4 +1,4 @@
-# Triplet Loss 算法
+# Triplet Loss 损失函数
 
 [Triplet Loss](https://arxiv.org/pdf/1503.03832.pdf)是深度学习中的一种损失函数，用于训练**差异性较小**的样本，如人脸等， Feed数据包括锚（Anchor）示例、正（Positive）示例、负（Negative）示例，通过优化锚示例与正示例的距离**小于**锚示例与负示例的距离，实现样本的相似性计算。
 
@@ -193,4 +193,4 @@ MNIST验证集的效果：
 
 ---
 
-By C. L. Wang @ [美图](http://www.meipai.com/)云事业部
+By C. L. Wang
